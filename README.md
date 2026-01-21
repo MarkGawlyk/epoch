@@ -122,7 +122,7 @@ Epoch is a free, no-login, privacy-preserving habit challenge app inspired by Ha
 - **Routing**: go_router
 - **State Management**: Riverpod
 - **Database**: Isar
-- **Local Images**: photo_manager or filesystem
+- **Local Images**: photo_manager (for progress photo capture and gallery access)
 - **Internationalization**: intl
 - **Animations**: animations package
 - **Hooks**: flutter_hooks
@@ -186,7 +186,8 @@ Epoch is a free, no-login, privacy-preserving habit challenge app inspired by Ha
 
 ## Initial Development Tasks
 
-- [x] Scaffold Flutter app structure
+The following tasks represent the core development work for the MVP:
+
 - [ ] Implement routing with go_router
 - [ ] Implement database schema and adapters with Isar
 - [ ] Build start flow (preset selection and custom creation)
@@ -236,4 +237,4 @@ To run this Flutter app:
 
 ## License
 
-TBD
+To be determined. Please contact the repository owner for licensing information.
