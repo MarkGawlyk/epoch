@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'screens/photo_gallery_screen.dart';
+import 'screens/progress_view_screen.dart';
+import 'screens/program_management_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -103,15 +105,13 @@ class EpochHomePage extends StatelessWidget {
                 const SizedBox(height: 16),
                 _buildFeatureCard(
                   context,
-                  icon: Icons.check_circle_outline,
-                  title: 'Daily Tasks',
-                  description: 'Complete your challenge one day at a time',
+                  icon: Icons.settings,
+                  title: 'Program Management',
+                  description: 'Create and manage your challenge program',
                   onTap: () {
-                    // TODO: Navigate to daily tasks screen
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Coming soon...'),
-                        behavior: SnackBarBehavior.floating,
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ProgramManagementScreen(),
                       ),
                     );
                   },
@@ -123,11 +123,9 @@ class EpochHomePage extends StatelessWidget {
                   title: 'Progress View',
                   description: 'Visualize your compliance and statistics',
                   onTap: () {
-                    // TODO: Navigate to progress view screen
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Coming soon...'),
-                        behavior: SnackBarBehavior.floating,
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ProgressViewScreen(),
                       ),
                     );
                   },
