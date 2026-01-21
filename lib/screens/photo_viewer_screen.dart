@@ -135,9 +135,8 @@ class _PhotoViewerScreenState extends State<PhotoViewerScreen> {
 
     if (shouldDelete == true) {
       final photoToDelete = widget.photos[_currentIndex];
-      widget.onDelete?.call(photoToDelete);
-      
       if (mounted) {
+        widget.onDelete?.call(photoToDelete);
         Navigator.of(context).pop();
       }
     }

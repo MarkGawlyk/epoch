@@ -227,21 +227,27 @@ class _PhotoGalleryScreenState extends State<PhotoGalleryScreen> {
   }
 
   Widget _buildPhotoGrid() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 100), // Account for transparent AppBar
-      child: GridView.builder(
-        padding: const EdgeInsets.all(16),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 8,
-          mainAxisSpacing: 8,
-          childAspectRatio: 1,
-        ),
-        itemCount: _photos.length,
-        itemBuilder: (context, index) {
-          return _buildPhotoThumbnail(_photos[index], index);
-        },
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final topPadding = MediaQuery.of(context).padding.top + kToolbarHeight + 8;
+        
+        return Padding(
+          padding: EdgeInsets.only(top: topPadding),
+          child: GridView.builder(
+            padding: const EdgeInsets.all(16),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
+              childAspectRatio: 1,
+            ),
+            itemCount: _photos.length,
+            itemBuilder: (context, index) {
+              return _buildPhotoThumbnail(_photos[index], index);
+            },
+          ),
+        );
+      },
     );
   }
 

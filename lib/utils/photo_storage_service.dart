@@ -64,12 +64,15 @@ class PhotoStorageService {
   /// Get all progress photos
   Future<List<String>> getAllPhotos() async {
     final photosDir = await getPhotosDirectory();
-    final files = await photosDir.list().toList();
+    final photosList = <String>[];
     
-    return files
-        .where((f) => f is File && f.path.endsWith('.jpg'))
-        .map((f) => f.path)
-        .toList()
-      ..sort((a, b) => b.compareTo(a)); // Most recent first
+    await for (final entity in photosDir.list()) {
+      if (entity is File && entity.path.endsWith('.jpg')) {
+        photosList.add(entity.path);
+      }
+    }
+    
+    photosList.sort((a, b) => b.compareTo(a)); // Most recent first
+    return photosList;
   }
 }
