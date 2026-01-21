@@ -279,10 +279,12 @@ class _ProgressViewScreenState extends State<ProgressViewScreen> {
 
   List<DailyEntry> _getDemoEntries(Program program) {
     final entries = <DailyEntry>[];
+    final taskCount = program.tasks.length;
     
     for (var i = 0; i < 30; i++) {
       final date = program.startDate.add(Duration(days: i));
-      final completedCount = (i % 5 == 0) ? 3 : 5; // Some days partially complete
+      // Vary completion: most days complete, some partially complete
+      final completedCount = (i % 5 == 0) ? (taskCount * 0.6).floor() : taskCount;
       
       entries.add(DailyEntry(
         id: 'demo_$i',
