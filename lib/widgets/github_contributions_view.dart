@@ -6,12 +6,14 @@ class GitHubContributionsView extends StatelessWidget {
   final List<DailyEntry> entries;
   final DateTime startDate;
   final int durationDays;
+  final int totalTasks;
 
   const GitHubContributionsView({
     super.key,
     required this.entries,
     required this.startDate,
     required this.durationDays,
+    required this.totalTasks,
   });
 
   @override
@@ -150,9 +152,8 @@ class GitHubContributionsView extends StatelessWidget {
       color = Colors.white.withOpacity(0.1);
     } else {
       // Calculate completion percentage
-      final totalTasks = 5; // This should come from the program
       final completedTasks = entry.completedTaskIds.length;
-      final percentage = completedTasks / totalTasks;
+      final percentage = totalTasks > 0 ? completedTasks / totalTasks : 0.0;
       
       if (percentage == 1.0) {
         color = const Color(0xFF39d353); // GitHub green

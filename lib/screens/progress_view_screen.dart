@@ -83,12 +83,14 @@ class _ProgressViewScreenState extends State<ProgressViewScreen> {
                   entries: entries,
                   startDate: program.startDate,
                   durationDays: program.durationDays,
+                  totalTasks: program.tasks.length,
                 )
               else
                 CalendarView(
                   entries: entries,
                   startDate: program.startDate,
                   durationDays: program.durationDays,
+                  totalTasks: program.tasks.length,
                 ),
             ],
           ),
@@ -277,7 +279,6 @@ class _ProgressViewScreenState extends State<ProgressViewScreen> {
 
   List<DailyEntry> _getDemoEntries(Program program) {
     final entries = <DailyEntry>[];
-    final random = DateTime.now().millisecondsSinceEpoch % 100;
     
     for (var i = 0; i < 30; i++) {
       final date = program.startDate.add(Duration(days: i));

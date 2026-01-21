@@ -6,12 +6,14 @@ class CalendarView extends StatefulWidget {
   final List<DailyEntry> entries;
   final DateTime startDate;
   final int durationDays;
+  final int totalTasks;
 
   const CalendarView({
     super.key,
     required this.entries,
     required this.startDate,
     required this.durationDays,
+    required this.totalTasks,
   });
 
   @override
@@ -216,9 +218,8 @@ class _CalendarViewState extends State<CalendarView> {
     if (isInProgram && !isInFuture) {
       if (entry.id.isNotEmpty) {
         // Has entry - show completion status
-        final totalTasks = 5; // This should come from the program
         final completedTasks = entry.completedTaskIds.length;
-        final percentage = completedTasks / totalTasks;
+        final percentage = widget.totalTasks > 0 ? completedTasks / widget.totalTasks : 0.0;
         
         if (percentage == 1.0) {
           backgroundColor = const Color(0xFF39d353).withOpacity(0.3);
