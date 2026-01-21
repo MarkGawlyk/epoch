@@ -47,5 +47,12 @@
 <true/>
 <key>UIApplicationSupportsIndirectInputEvents</key>
 <true/>
+<!-- Camera and Photo Library permissions -->
+<key>NSCameraUsageDescription</key>
+<string>Epoch needs access to your camera to capture progress photos.</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>Epoch needs access to your photo library to select progress photos.</string>
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>Epoch needs access to save progress photos to your library.</string>
 </dict>
 </plist>
